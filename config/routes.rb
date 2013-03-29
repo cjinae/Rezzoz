@@ -1,8 +1,14 @@
 Rezzos::Application.routes.draw do
 
-  resources :categories 
-  resources :restaurants
-  resources :user do 
+root :to => 'home#index'
+
+  resources :categories
+
+  resources :restaurants do
+    resources :timeslots
+  end
+  
+  resources :users do
     resources :restaurants
   end
 

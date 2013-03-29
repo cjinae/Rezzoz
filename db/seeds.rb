@@ -13,19 +13,20 @@
 # 			:categories => name) 
 # 	end
 
-restaurant_opts = [{:name =>"Union", :categories => ["French", "Steakhouse"]}, 
+restaurant_opts = [{:name =>"Union", :categories => ["French"]}, 
 					{:name => "Burrito Boys", :categories => ["Mexican"]},
 					{:name => "Kimchi", :categories => ["Korean"]},
-					{:name => "Oui", :categories => ["French"]}
+					{:name => "Oui", :categories => ["French"]},
+					{:name => "McDonalds", :categories => ["FastFood"]}
 				]
 
 restaurant_opts.each do |opts|
-	restaurant = Restaurant.create!(:name => opts[:name])
-	# r = Restaurant.create! opts.slice(:name)
+	#restaurant = Restaurant.create!(:name => opts[:name])
+	restaurant = Restaurant.create! opts.slice(:name)
 		opts [:categories].each do |name|
 			category = Category.where(:name => name).first_or_create    #this replaces having to create categories only
 			restaurant.categories << category
 		end
 	end
 
-puts "hello, it worked"
+puts "hello, the seed worked"

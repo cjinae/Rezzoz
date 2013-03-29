@@ -1,2 +1,16 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Welcome to Rezzos!</h1>
+<% @categories = Category.all %>
+<%# @categories.each do |category| %>
+	<%#= category.name %>
+<%# end %>
+
+<p>Restaurant Category:
+<%= collection_select(:name, :category_id, @categories, :id, :name, {:prompt => true}) %> </p>
+
+
+<%#= form_for(@timeslot) do |f| %>
+<p> Date Select:
+<%#= select_datetime Date.today, :prefix => :start_datetime %> </p>
+<%= datetime_select :restaurants, :time %>
+<%#= f.submit %>
+<%# end %>

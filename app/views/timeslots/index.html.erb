@@ -1,0 +1,6 @@
+<%= form_for(@timeslot) do |f| %>
+<p> Date Select:
+<%#= select_datetime Date.today, :prefix => :start_datetime %> </p>
+<%= f.datetime_select :restaurants, :time %>
+<%= f.submit %>
+<% end %>
